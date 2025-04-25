@@ -1,0 +1,12 @@
+---
+- name: Reboot windows machines
+  hosts: windows
+  gather_facts: no
+  tasks:
+    - name: Reboot the machine with all defaults
+      ansible.windows.win_reboot:
+
+    - name: Install all updates and reboot as many times as needed
+      ansible.windows.win_updates:
+          category_names: '*'
+          reboot: true
